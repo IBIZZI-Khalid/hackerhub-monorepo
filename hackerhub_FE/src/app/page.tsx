@@ -86,6 +86,15 @@ export default function Home() {
           activeStreams--;
           if (activeStreams === 0) {
             setIsPending(false);
+            // Show success toast
+            setEvents(prev => {
+              toast({
+                title: "Scraping Completed",
+                description: `Successfully found ${prev.length} hackathons.`,
+                variant: "default",
+              });
+              return prev;
+            });
             resolve();
           }
         };
@@ -108,6 +117,15 @@ export default function Home() {
           </p>
         </div>
         <SearchForm onScrape={handleScrape} isLoading={isPending} />
+
+        {/* Real-time counter while waiting */}
+        {isPending && (
+          <div className="mt-4 text-center animate-pulse">
+            <p className="text-primary font-medium">
+              Searching... {events.length} hackathons scraped so far
+            </p>
+          </div>
+        )}
       </section>
 
       <section className="min-h-[500px]">
