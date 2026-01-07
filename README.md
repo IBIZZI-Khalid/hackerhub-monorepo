@@ -31,7 +31,7 @@ hackerhub/
 
 ```bash
 # Clone the repository
-git clone https://github.com/YOUR_USERNAME/hackerhub.git
+git clone https://github.com/IBIZZI-Khalid/hackerhub.git
 cd hackerhub
 
 # Start all services
